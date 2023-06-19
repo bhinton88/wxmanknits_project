@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBarS from "./components/NavBar";
+import { Routes, Route } from 'react-router-dom';
+import Account from './pages/Account';
+import Shop from './pages/Shop';
+import ItemList from './components/ItemList';
+import CreateUserForm from './components/CreateUserForm';
+import SuccesfulTransaction from './components/SuccesfulTransaction';
+import FailedTransaction from './components/FailedTransaction';
+import { UserProvider } from './context/UserContext';
+import { CategoryProvider } from './context/CategoriesContext';
+import { ItemProvider } from './context/ItemContext';
+import { CartProvider } from './context/CartContext';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  return(
+    <>
+      <ItemProvider>
+        <UserProvider>
+          <CartProvider>
+            <CategoryProvider>
+              <NavBarS />
+              <Routes>
+                <Route path='/new_user' element={<CreateUserForm />}/>
+                <Route path='/account' element={<Account />}/>
+                <Route path='/shop' element={<Shop />} />
+                <Route path='/shop/:category_name' element={<ItemList />} />
+                <Route path='/checkout/complete' element={<SuccesfulTransaction />}/>
+                <Route path='/chouckout/failure' element={<FailedTransaction />} />
+              </Routes>
+            </CategoryProvider>
+          </CartProvider>
+        </UserProvider>
+      </ItemProvider>
+    </>
+  )
+
 }
 
 export default App;
