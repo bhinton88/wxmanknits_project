@@ -46,8 +46,6 @@ function ShoppingCart ({isOpen}) {
 
   console.log(lineItems)
 
-  console.log(order_items)
-
   function handleCheckout (){
     fetch('/checkout', {
       method: "POST",
@@ -56,13 +54,13 @@ function ShoppingCart ({isOpen}) {
         order: {
           number_of_items: cartQuantity,
           total_cost: totalCartCost,
-          order_items: order_items
         },
-        line_items: lineItems
+        order_items: order_items,
+        line_items: lineItems.map(value => value)
       })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => window.location.href = data[0].redirectUrl)
   }
 
   return (

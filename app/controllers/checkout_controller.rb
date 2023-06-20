@@ -6,37 +6,44 @@ class CheckoutController < ApplicationController
     # we first find the customer so that we can provide that detail to the 
     # session object
     user = User.find(session[:user_id])
-     #  we will first create the order and save it with the passed in params
+    
+    # then create the order that is associated with that user
     order = user.orders.create!(order_params)
-    byebug
-    # no need to create for both the order_items, or payments, as they are nested and we can pass that data in the params
-    # next we will create the session object to start the payment
+    # here we are saving our order_items to the DB
+    order_items = order.order_items.create(order_items_params)
+
+    #  here we are getting our items in the correct format to submit to stripe
+    line_items = order_items.map{ |item| {quantity: item.quantity, price: item.item.price_id}}
+
+    # making a call to the stripe API to create a session in order to 
     session = Stripe::Checkout::Session.create(
       customer: user.stripe_id,
-      line_items: checkout_params,
+      customer_details: {
+        address: user.address,
+        email: user.email,
+        name: user.full_name,
+      }
+      line_items: line_items,
       mode: 'payment',
-      success_url: "http://localhost:4000/checkout/complete",
-      cancel_url: "http://localhost:4000/checkout/failure"
+      success_url: "http://localhost:4000/complete",
+      cancel_url: "http://localhost:4000/failure"
     )
-    redirect_to session.url
-    byebug
-    # can pull out all the necessary information we need out of our customer and order variables
 
-    #  once we are done with completing the session, we need to update our payment to include the stripe reference ID and the status of the payment
-    
+    Payment.create(stripe_reference_number: session.id, status: session.payment_status)
+
+    response = [{redirectUrl: session.url}]
+  
+    render json: response, status: :created
   end
 
   private
   #  we included the can accept nested resources in our order model.. so we can now pass our array of objects for order items, along with the payment values and they will be saved in their respective models
   def order_params
-
-
-    params.require(:order).permit(:number_of_items, :total_cost, :order_items)
+    params.require(:order).permit(:number_of_items, :total_cost)
   end
 
-  def checkout_params
-    params.permit(line_items)
+  def order_items_params
+    params.require(:order_items).map { |params| params.permit(:item_id, :cost, :quantity)}
   end
-
 
 end
