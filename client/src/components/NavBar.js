@@ -8,6 +8,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import LoginUser from './LoginUser'
 import { UserContext } from '../context/UserContext'
 import { CartContext } from '../context/CartContext'
+import Image from '../assets/wxman-knits-logos-bw-1.png'
 
 
 export default function NavBarS() {
@@ -32,26 +33,47 @@ export default function NavBarS() {
   
   return(
     <>
-      <Navbar className='bg-white shadow-sm mb-3'>
-        <Container>
-          <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav"/>
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/about">About Wxmanknits</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/shop">Shop</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/account">My Account</Nav.Link>
-              </Nav>
-              <Button variant='outline-primary' onClick={handleAccountButton}><FontAwesomeIcon icon={faCircleUser}/>
+      <Navbar className='bg-white shadow-sm mb-3 d-flex'>
+        <Navbar.Brand href="/">
+          <img
+          src={Image}
+          width="150"
+          height="75"
+          />
+        </Navbar.Brand>
+        <Container className='mx-0'>
+        <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav"/>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto justify-content-end" style={{fontFamily: 'Indie Flower', fontSize: "large", fontWeight: "bold"}}> 
+              <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
+              <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/about">About Wxmanknits</Nav.Link>
+              <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/shop">Shop</Nav.Link>
+              <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/account">My Account</Nav.Link>
+            </Nav>
+            <Button 
+              variant='outline-primary' 
+              onClick={handleAccountButton}
+              title='My Account'
+              style={{fontFamily: 'Kanit'}}
+              >
+              <FontAwesomeIcon icon={faCircleUser}/>
               {user ? ` ${user.username}`: " Sign in"}
               </Button>
-              <Button className="ms-3" title='Log out' onClick={() => logoutUser()}><FontAwesomeIcon icon={faRightFromBracket} size="sm" /></Button>
-
+              <Button 
+                className="ms-3" 
+                variant="outline-danger"
+                title='Log out' 
+                onClick={() => logoutUser()}><FontAwesomeIcon 
+                icon={faRightFromBracket} 
+                size="sm"
+              />
+              </Button>
               <Button 
                 className='ms-2 rounded-circle'
                 variant="outline-primary" 
                 style={{ height: "3rem", width: "3rem", position: "relative"}}
                 onClick={openCart}
+                title='My Cart'
               >
                 <FontAwesomeIcon icon={faCartShopping} size="lg" />
                 {  cartQuantity > 0 ?

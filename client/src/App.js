@@ -11,6 +11,8 @@ import { UserProvider } from './context/UserContext';
 import { CategoryProvider } from './context/CategoriesContext';
 import { ItemProvider } from './context/ItemContext';
 import { CartProvider } from './context/CartContext';
+import About from './pages/About';
+import "./index.css" 
 
 
 
@@ -24,12 +26,14 @@ function App() {
             <CategoryProvider>
               <NavBarS />
               <Routes>
+                {/* will need to create a landing page and use it for our home / */}
                 <Route path='/new_user' element={<CreateUserForm />}/>
                 <Route path='/account' element={<Account />}/>
                 <Route path='/shop' element={<Shop />} />
                 <Route path='/shop/:category_name' element={<ItemList />} />
                 <Route path='/checkout/complete' element={<SuccesfulTransaction />}/>
                 <Route path='/checkout/failure' element={<FailedTransaction />} />
+                <Route pateh="/about" element={<About />}/>
               </Routes>
             </CategoryProvider>
           </CartProvider>
