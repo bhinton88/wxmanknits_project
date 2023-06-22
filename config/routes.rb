@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :payments
+  resources :payments, only: []
   resources :categories, only: [:index]
   resources :items
   resources :order_items, only: [:create]

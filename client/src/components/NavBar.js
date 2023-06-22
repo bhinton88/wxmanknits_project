@@ -2,10 +2,11 @@ import { Container, Navbar, Nav, Button, Modal  } from 'react-bootstrap'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCircleUser} from '@fortawesome/free-regular-svg-icons'
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons'
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import LoginUser from './LoginUser'
 import { UserContext } from '../context/UserContext'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { CartContext } from '../context/CartContext'
 
 
@@ -13,7 +14,7 @@ export default function NavBarS() {
 
   const navigate = useNavigate();
 
-  const {user} = useContext(UserContext)
+  const {user, logoutUser} = useContext(UserContext)
   const {cartQuantity, openCart} = useContext(CartContext)
 
   const [ expanded, setExpanded] = useState(false)
@@ -44,6 +45,7 @@ export default function NavBarS() {
               <Button variant='outline-primary' onClick={handleAccountButton}><FontAwesomeIcon icon={faCircleUser}/>
               {user ? ` ${user.username}`: " Sign in"}
               </Button>
+              <Button className="ms-3" title='Log out' onClick={() => logoutUser()}><FontAwesomeIcon icon={faRightFromBracket} size="sm" /></Button>
 
               <Button 
                 className='ms-2 rounded-circle'

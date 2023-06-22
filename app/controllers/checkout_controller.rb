@@ -18,18 +18,13 @@ class CheckoutController < ApplicationController
     # making a call to the stripe API to create a session in order to 
     session = Stripe::Checkout::Session.create(
       customer: user.stripe_id,
-      customer_details: {
-        address: user.address,
-        email: user.email,
-        name: user.full_name,
-      }
       line_items: line_items,
       mode: 'payment',
       success_url: "http://localhost:4000/complete",
       cancel_url: "http://localhost:4000/failure"
     )
 
-    Payment.create(stripe_reference_number: session.id, status: session.payment_status)
+    Payment.create(order_id: order.id, stripe_reference_number: session.id, status: session.payment_status)
 
     response = [{redirectUrl: session.url}]
   

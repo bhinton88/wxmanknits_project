@@ -29,7 +29,7 @@ function App() {
                 <Route path='/shop' element={<Shop />} />
                 <Route path='/shop/:category_name' element={<ItemList />} />
                 <Route path='/checkout/complete' element={<SuccesfulTransaction />}/>
-                <Route path='/chouckout/failure' element={<FailedTransaction />} />
+                <Route path='/checkout/failure' element={<FailedTransaction />} />
               </Routes>
             </CategoryProvider>
           </CartProvider>

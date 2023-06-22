@@ -3,6 +3,7 @@ import InventoryManagement from "./InventoryManagement"
 import EditProfileTab from "./EditProfileTab"
 import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
+import OrderTab from "./OrderTab"
 
 function AccountTabs () {
 
@@ -18,7 +19,7 @@ function AccountTabs () {
       <EditProfileTab />
     </Tab>
     <Tab eventKey="orders" title="Orders">
-
+      <OrderTab />
     </Tab>
     {
       user.admin_rights ?

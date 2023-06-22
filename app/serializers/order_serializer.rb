@@ -1,5 +1,9 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :number_of_items, :total_cost
+  attributes :id, :number_of_items, :total_cost, :payment_status
 
-  has_many :order_items
+  has_many :order_items, serializer: OrderItemDescriptionSerializer
+
+  def payment_status
+    self.object.payment.status
+  end 
 end
