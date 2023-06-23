@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import OrderCard from './OrderCard'
 
 function OrderTab() {
 
@@ -9,11 +10,20 @@ function OrderTab() {
     .then(response => response.json())
     .then(data => setOrders(data))
   }, [])
-
-  console.log(orders)
   
   return (
-    <div>OrderTab</div>
+    <div className='d-flex flex-column align-items-center'>
+      <h1>Completed Orders:</h1>
+      {
+        orders.map(order => {
+        if(order.payment_status === "paid") {
+          return <OrderCard key={order.id} order={order} />
+        } else {
+          return null
+        }
+      })
+      }
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Button, Card } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import { useNavigate } from "react-router"
 
 
@@ -11,7 +11,7 @@ function CategoryCard ({category}) {
   }
  
   return(
-    <Card style={{height: "250px"}} onClick={() => onClick(category.category_name)}>
+    <Card style={{height: "250px"}} onClick={() => onClick(category.category_name)} className="category-card">
       <Card.Body className="d-flex flex-column justify-content-around">
         <h1>{category.category_name}</h1>
       </Card.Body>

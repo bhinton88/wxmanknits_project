@@ -26,6 +26,7 @@ function InventoryManagement() {
         <Button
           className="me-4"
           onClick={() => handleShow()} 
+          title="Add a new item"
         >
           <FontAwesomeIcon icon={faSquarePlus} size='xl' />{' '}
           Add New Item

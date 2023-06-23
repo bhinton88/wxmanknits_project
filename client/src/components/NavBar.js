@@ -39,6 +39,7 @@ export default function NavBarS() {
           src={Image}
           width="150"
           height="75"
+          alt="Weather man knits logo with yarn tornado and needles crossed for x"
           />
         </Navbar.Brand>
         <Container className='mx-0'>

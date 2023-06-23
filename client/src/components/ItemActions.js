@@ -17,11 +17,11 @@ import { ItemContext } from "../context/ItemContext";
 
   return (
     <>
-      <Button variant="success" size="sm" onClick={handleShow}>
+      <Button variant="success" size="sm" title="Edit Item"  onClick={handleShow}>
         <FontAwesomeIcon icon={faPencil} size="xs" />
       {/* here we will add button which EDITS this item */}
       </Button>
-      <Button variant="danger" size="sm" onClick={() => deleteItem(item.id)}>
+      <Button variant="danger" size="sm" title="Delete Item"  onClick={() => deleteItem(item.id)}>
         <FontAwesomeIcon icon={faTrash} size="xs" />
       {/* here we will add a button which DELETES the item */}
       </Button>
