@@ -20,7 +20,7 @@ function ItemCard({item}) {
 
 
   return (
-    <Card className="w-100">
+    <Card>
       <Card.Img 
         as="img" 
         variant="top" 
@@ -45,41 +45,26 @@ function ItemCard({item}) {
             </Button>)
           :
           ((quantityInCart <= quantity_available) ?
-              (<div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
-                  <div className="d-flex align-items-center justify-content-center" style={{ gap: ".5rem" }} >
-                    <div>
-                      <span className="fs-3">{quantityInCart}</span>
-                      in cart
-                    </div>
+            (<div className="d-flex align-items-center flex-column" style={{gap: ".5rem"}}>
+                <div className="d-flex align-items-center justify-content-center" style={{ gap: ".5rem" }} >
+                  {quantity_available > 1 ? <Button onClick={() => removeItemFromCart(item.id)}>-</Button> : null}
+                  <div>
+                    <span className="fs-3">{quantityInCart}</span>
+                    in cart
                   </div>
-                  <Button 
-                    variant="danger" 
-                    size="sm"
-                    onClick={() => deleteAllOfAnItemFromCart(item.id)}
-                  >
-                  Remove from cart
-                  </Button> 
+                  {quantityInCart === quantity_available ? null : <Button onClick={() => addItemToCart(item.id)}>+</Button>}
+                </div>
+                <Button 
+                  variant="danger" 
+                  size="sm"
+                  onClick={() => deleteAllOfAnItemFromCart(item.id)}
+                >
+                Remove from cart
+                </Button> 
               </div>
               )
               :
-            (<div className="d-flex align-items-center justify-content-center" style={{gap: ".5rem"}}>
-              <div className="d-flex align-items-center justify-content-center" style={{gap: ".5rem"}}>
-                <Button onClick={() => removeItemFromCart(item.id)}>-</Button>
-                <div>
-                  <span className="fs-3">{quantityInCart}</span>
-                  in cart
-                </div>
-                <Button onClick={() => addItemToCart(item.id)}>+</Button>
-              </div>
-              <Button 
-                variant="danger" 
-                size="sm"
-                onClick={() => deleteAllOfAnItemFromCart(item.id)}
-              >
-              Remove from cart
-              </Button>
-            </div>
-            )
+            null
           )
         }
       </Card.Body>

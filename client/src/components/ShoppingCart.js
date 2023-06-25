@@ -44,7 +44,7 @@ function ShoppingCart ({isOpen}) {
     )
   })
 
-  console.log(lineItems)
+
 
   function handleCheckout (){
     fetch('/checkout', {
@@ -62,6 +62,8 @@ function ShoppingCart ({isOpen}) {
     .then(response => response.json())
     .then(data => window.location.href = data[0].redirectUrl)
   }
+
+  console.log(cartItems)
 
   return (
     <Offcanvas className="w-40" show={isOpen} onHide={closeCart}  placement="end">

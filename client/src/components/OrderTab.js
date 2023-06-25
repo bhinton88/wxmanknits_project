@@ -15,13 +15,7 @@ function OrderTab() {
     <div className='d-flex flex-column align-items-center'>
       <h1>Completed Orders:</h1>
       {
-        orders.map(order => {
-        if(order.payment_status === "paid") {
-          return <OrderCard key={order.id} order={order} />
-        } else {
-          return null
-        }
-      })
+        orders.map(order => order.payment_status === "paid" ? <OrderCard key={order.id} order={order} /> : null)
       }
     </div>
   )

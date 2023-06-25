@@ -11,7 +11,6 @@ import { UserProvider } from './context/UserContext';
 import { CategoryProvider } from './context/CategoriesContext';
 import { ItemProvider } from './context/ItemContext';
 import { CartProvider } from './context/CartContext';
-import About from './pages/About';
 import "./index.css" 
 
 
@@ -33,7 +32,6 @@ function App() {
                 <Route path='/shop/:category_name' element={<ItemList />} />
                 <Route path='/checkout/complete' element={<SuccesfulTransaction />}/>
                 <Route path='/checkout/failure' element={<FailedTransaction />} />
-                <Route pateh="/about" element={<About />}/>
               </Routes>
             </CategoryProvider>
           </CartProvider>

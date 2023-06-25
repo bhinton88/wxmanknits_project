@@ -48,20 +48,17 @@ function CartProvider ({children}) {
       setCartItems([
         ...cartItems, {
         id: id,
-        quantity: 1,
+        quantity: 1
         }
       ])
 
-    } else { // if we are adding to items already in our cart, we need to update the quanity and the total cost 
+    } else { // if we are adding to items already in our cart, we need to update the quantity
       const updatedCart = cartItems.map(item =>  item.id === id ?
         {...item, quantity: item.quantity + 1}
         :
         item
       )
-      setCartItems([
-        ...cartItems, 
-        updatedCart
-      ])
+      setCartItems(updatedCart)
     }
   }
 
@@ -84,10 +81,7 @@ function CartProvider ({children}) {
         :
         item
       )
-      setCartItems([
-        ...cartItems, 
-        updatedCart
-      ])
+      setCartItems(updatedCart)
     }
   }
 

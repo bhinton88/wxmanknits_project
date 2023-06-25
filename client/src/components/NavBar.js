@@ -47,7 +47,6 @@ export default function NavBarS() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto justify-content-end" style={{fontFamily: 'Indie Flower', fontSize: "large", fontWeight: "bold"}}> 
               <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
-              <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/about">About Wxmanknits</Nav.Link>
               <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/shop">Shop</Nav.Link>
               <Nav.Link className="navbar-navlinks" onClick={() => setExpanded(false)} as={Link} to="/account">My Account</Nav.Link>
             </Nav>

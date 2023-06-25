@@ -10,7 +10,7 @@ function EditProfileTab () {
 
   // dont forget to add a delete user functionality
 
-  // further deconstruction of the user object 
+
   const {id, username, full_name, address, city, state, zip_code, email} = user
 
   const [userFormData, setUserFormData] = useState({
