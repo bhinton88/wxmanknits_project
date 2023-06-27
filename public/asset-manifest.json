@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3ea9defe.chunk.css",
+    "main.js": "/static/js/main.dc31776c.chunk.js",
+    "main.js.map": "/static/js/main.dc31776c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2cd2efc9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2cd2efc9.js.map",
+    "static/css/2.0d0aed5b.chunk.css": "/static/css/2.0d0aed5b.chunk.css",
+    "static/js/2.4bb6d9a3.chunk.js": "/static/js/2.4bb6d9a3.chunk.js",
+    "static/js/2.4bb6d9a3.chunk.js.map": "/static/js/2.4bb6d9a3.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.0d0aed5b.chunk.css.map": "/static/css/2.0d0aed5b.chunk.css.map",
+    "static/css/main.3ea9defe.chunk.css.map": "/static/css/main.3ea9defe.chunk.css.map",
+    "static/js/2.4bb6d9a3.chunk.js.LICENSE.txt": "/static/js/2.4bb6d9a3.chunk.js.LICENSE.txt",
+    "static/media/IMG_2897.0ebf99f2.jpeg": "/static/media/IMG_2897.0ebf99f2.jpeg",
+    "static/media/IMG_4704.a4273379.jpeg": "/static/media/IMG_4704.a4273379.jpeg",
+    "static/media/IMG_4841.f0d9aa67.jpeg": "/static/media/IMG_4841.f0d9aa67.jpeg",
+    "static/media/IMG_6879.48ccb92c.jpeg": "/static/media/IMG_6879.48ccb92c.jpeg",
+    "static/media/hook-1727484.afe1986e.svg": "/static/media/hook-1727484.afe1986e.svg",
+    "static/media/wxman-knits-icon.2a274784.jpg": "/static/media/wxman-knits-icon.2a274784.jpg",
+    "static/media/wxman-knits-logos-bw-1.6076f124.png": "/static/media/wxman-knits-logos-bw-1.6076f124.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2cd2efc9.js",
+    "static/css/2.0d0aed5b.chunk.css",
+    "static/js/2.4bb6d9a3.chunk.js",
+    "static/css/main.3ea9defe.chunk.css",
+    "static/js/main.dc31776c.chunk.js"
+  ]
+}
