@@ -1,6 +1,6 @@
 class CheckoutController < ApplicationController
 
-  # this controller will handle the check out funtion and the linking to stripe 
+  before_action :authorize 
 
   def create
     # we first find the customer so that we can provide that detail to the 
@@ -39,6 +39,10 @@ class CheckoutController < ApplicationController
 
   def order_items_params
     params.require(:order_items).map { |params| params.permit(:item_id, :cost, :quantity)}
+  end
+
+  def authorize
+    render json: {errors: ["Not authorized"]}, status: :unauthorized unless session.include? :user_id
   end
 
 end

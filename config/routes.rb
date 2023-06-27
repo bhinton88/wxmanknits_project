@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :payments, only: []
   resources :categories, only: [:index]
   resources :items
-  resources :order_items, only: [:create]
+  resources :order_items, only: []
   resources :orders, only: [:index]
   resources :users
 

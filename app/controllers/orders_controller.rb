@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   
   def index
     user = User.find_by(id: session[:user_id])
@@ -11,6 +10,5 @@ class OrdersController < ApplicationController
     render json: orders, status: :accepted
   end
   
-
 
 end
