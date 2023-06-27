@@ -6,7 +6,7 @@ import { states } from "../data/States"
 
 function EditProfileTab () {
   
-  const { user, updateUser, errors } = useContext(UserContext)
+  const { user, updateUser, errors, deleteUser } = useContext(UserContext)
 
   // dont forget to add a delete user functionality
 
@@ -128,7 +128,7 @@ function EditProfileTab () {
             </ul>
           </Form.Text>
           <Button type="submit">Edit Profile</Button>
-          <Button className="ms-3">Delete my profile</Button>
+          <Button onClick={() => deleteUser(user.id)} className="ms-3">Delete my profile</Button>
       </Form>
     </>
 

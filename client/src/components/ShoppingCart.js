@@ -73,8 +73,6 @@ function ShoppingCart ({isOpen}) {
     }
   }
 
-  console.log(cartItems)
-
   return (
     <>
       <Offcanvas className="w-40" show={isOpen} onHide={closeCart}  placement="end">

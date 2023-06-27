@@ -36,4 +36,29 @@ cursor: pointer;
 .category-card:hover{
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+} 
+
+.card-img {
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
 }
+
+.homeCard {
+  border: #fff;
+  border-radius: 55%;
+}
+
+.ravelryLink {
+  color: #C0392B ;
+}
+
+.instaLink {
+  color: #17A589 ;
+}
+
+.ravelryLink:hover, .instaLink:hover{
+  color: blue;
+}
+
+
