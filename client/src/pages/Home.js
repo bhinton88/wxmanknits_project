@@ -64,10 +64,22 @@ function Home() {
             Welcome to my site! A place for me, Bobby, to sell my finished knitted objects along with destash yarn. You might be asking yourself, what does the wx in wxman mean? Well us Meteorologists love to use wx as a shorthand for weather. As such, you guessed it, I am a weatherman and I also love to knit/crochet/craft! Enjoy and I hope you find something you like! Feel free to add me on any of the socials below!
             </Card.Text>
             <Card.Text className='d-flex justify-content-around'>
-            <a title='Wxman knits on Ravelry' className='ravelryLink' href="https://www.ravelry.com/people/Wxmanknits" target="_blank">
+            <a 
+              title='Wxman knits on Ravelry' 
+              className='ravelryLink' 
+              href="https://www.ravelry.com/people/Wxmanknits" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faRavelry} size="2xl" />
             </a>
-            <a title='Wxman knits on Instagram' className='instaLink' href='https://www.instagram.com/wxmanknits/' target='_blank'>
+            <a 
+              title='Wxman knits on Instagram' 
+              className='instaLink' 
+              href='https://www.instagram.com/wxmanknits/' 
+              target='_blank'
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faInstagram} size="2xl" />
             </a>
             </Card.Text>

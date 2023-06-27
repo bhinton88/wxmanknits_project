@@ -59,15 +59,19 @@ export default function NavBarS() {
               <FontAwesomeIcon icon={faCircleUser}/>
               {user ? ` ${user.username}`: " Sign in"}
               </Button>
-              <Button 
-                className="ms-3" 
-                variant="outline-danger"
-                title='Log out' 
-                onClick={() => logoutUser()}><FontAwesomeIcon 
-                icon={faRightFromBracket} 
-                size="sm"
-              />
-              </Button>
+              {user ? 
+                <Button 
+                  className="ms-3" 
+                  variant="outline-danger"
+                  title='Log out' 
+                  onClick={() => logoutUser()}><FontAwesomeIcon 
+                  icon={faRightFromBracket} 
+                  size="sm"
+                />
+                </Button>
+                : 
+                null
+              }
               <Button 
                 className='ms-2 rounded-circle'
                 variant="outline-primary" 
