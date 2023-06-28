@@ -20,8 +20,7 @@ function EditProfileTab () {
     city: city,
     state: state,
     zip_code: zip_code,
-    email: email,
-    admin_rights: true
+    // email: email
   })
 
   function onChange(event) {
