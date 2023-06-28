@@ -5,6 +5,7 @@ class CheckoutController < ApplicationController
   def create
     # we first find the customer so that we can provide that detail to the 
     # session object
+
     user = User.find(session[:user_id])
     
     # then create the order that is associated with that user
@@ -20,8 +21,8 @@ class CheckoutController < ApplicationController
       customer: user.stripe_id,
       line_items: line_items,
       mode: 'payment',
-      success_url: "http://localhost:4000/complete",
-      cancel_url: "http://localhost:4000/failure"
+      success_url: "https://wxmanknits-app.onrender.com//complete",
+      cancel_url: "https://wxmanknits-app.onrender.com//failure"
     )
 
     Payment.create(order_id: order.id, stripe_reference_number: session.id, status: session.payment_status)
