@@ -21,7 +21,7 @@ React/JavaScript:
 
 Ruby on Rails:
   - Active Record
-  Gems:
+  - Gems:
     - bcrypt
     - puma
     - pg (for postgresql)
