@@ -21,8 +21,8 @@ class CheckoutController < ApplicationController
       customer: user.stripe_id,
       line_items: line_items,
       mode: 'payment',
-      success_url: "https://wxmanknits-app.onrender.com/complete",
-      cancel_url: "https://wxmanknits-app.onrender.com/failure"
+      success_url: "https://wxmanknits-app.onrender.com/checkout/complete",
+      cancel_url: "https://wxmanknits-app.onrender.com/checkout/failure"
     )
 
     Payment.create(order_id: order.id, stripe_reference_number: session.id, status: session.payment_status)
