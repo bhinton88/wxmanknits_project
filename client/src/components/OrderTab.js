@@ -10,8 +10,6 @@ function OrderTab() {
     .then(response => response.json())
     .then(data => setOrders(data))
   }, [])
-
-  console.log(orders)
   
   return (
     <div className='d-flex flex-column align-items-center'>

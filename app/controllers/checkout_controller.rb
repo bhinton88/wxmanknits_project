@@ -16,7 +16,7 @@ class CheckoutController < ApplicationController
     #  here we are getting our items in the correct format to submit to stripe
     line_items = order_items.map{ |item| {quantity: item.quantity, price: item.item.price_id}}
 
-    # making a call to the stripe API to create a session in order to 
+    # making a call to the stripe API to create a checkout session 
     session = Stripe::Checkout::Session.create(
       customer: user.stripe_id,
       line_items: line_items,
@@ -33,7 +33,7 @@ class CheckoutController < ApplicationController
   end
 
   private
-  #  we included the can accept nested resources in our order model.. so we can now pass our array of objects for order items, along with the payment values and they will be saved in their respective models
+
   def order_params
     params.require(:order).permit(:number_of_items, :total_cost)
   end

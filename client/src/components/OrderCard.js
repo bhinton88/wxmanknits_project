@@ -11,7 +11,7 @@ function OrderCard({order}) {
   const {id, number_of_items, order_items,total_cost, created_at} = order
 
   return (
-    <Card className="w-50">
+    <Card className="w-50 my-3">
       <Card.Body>
         <Card.Title>Order # {id} </Card.Title>
           <span>Purchased : {formatDate(created_at)}</span>
