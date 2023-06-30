@@ -9,7 +9,7 @@ function CartItem({ item }) {
 
   const {id, quantity} = item
   const { items } = useContext(ItemContext) // all items from context
-  const {removeItemFromCart} = useContext(CartContext)
+  const {deleteAllOfAnItemFromCart} = useContext(CartContext)
   
   const current_item = items.find(item => item.id === id)
   if(item === null) return null
@@ -32,7 +32,7 @@ function CartItem({ item }) {
         </div>
         <div>{formatCurrency(currentItemCost)}</div>
       </div>
-      <Button variant="outline-danger" size="sm" className="justify-content-right" onClick={() => removeItemFromCart(item.id)}>&times;</Button>
+      <Button variant="outline-danger" size="sm" className="justify-content-right" onClick={() => deleteAllOfAnItemFromCart(item.id)}>&times;</Button>
     </Stack>  
   )
 }
