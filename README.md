@@ -2,7 +2,9 @@
 
 ## About the App:
 
-Full stack E-commerce App built to allow me to sell my own hand crafted items
+Wxmanknits and e-commerce app!
+
+An app built to display and sell both hand made items and destash yarn.
 
 ## Features:
 - Sign up for account or login with username/password
@@ -12,14 +14,15 @@ Full stack E-commerce App built to allow me to sell my own hand crafted items
 
 ## Technologies
 
-React/JavaScript:
-  Dependencies:
+Frontend:
+  - React/JavaScript
   - Bootstrap
   - Bootstrap-React
   - React Router Dom
   - FontAwesome
 
-Ruby on Rails:
+Backend:
+  - Ruby on Rails
   - Active Record
   - Gems:
     - bcrypt
