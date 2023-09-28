@@ -17,7 +17,7 @@ function CreateUserForm () {
     state: "",
     zip_code: 0,
     email: "",
-    admin_rights: false
+    admin_rights: true
   })
 
   function onChange(event) {
